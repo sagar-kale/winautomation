@@ -4,7 +4,7 @@ import com.sagar.automation.winautomation.enums.NotificationType;
 
 public final class CallmebotApi {
     private static final String WHATSAPP_API = "https://api.callmebot.com/whatsapp.php";
-    private static final String WHATSAPP_API_KEY = "675207";
+    private static final String WHATSAPP_API_KEY = "YOUR_WHATSAPP_API_CODE";
     private static final String TELEGRAM_API = "http://api.callmebot.com/start.php?user=@sgrkale";
 
     private CallmebotApi() {
