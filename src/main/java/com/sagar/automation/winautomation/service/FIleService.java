@@ -26,8 +26,10 @@ public class FIleService {
             System.out.println(strings);
             String medium = getObject(0, strings);
             String action = getObject(1, strings);
+            // below checks is added because i am using assistive IFTT control to create files on dropbox
             if (action == null) {
                 action = medium;
+                action = action.replace(":/f", "");
                 medium = "computer";
             }
             if (medium != null && medium.toLowerCase().equals("motor")) {
