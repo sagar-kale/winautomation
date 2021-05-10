@@ -11,13 +11,26 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class FIleService {
     private static AtomicBoolean motor = new AtomicBoolean(false);
 
+    public static String getObject(int i, List<String> list) {
+        if (i >= 0 && i < list.size()) {
+            return list.get(i);
+        }
+        return null;
+    }
+
     public static void readAndModify(String file) {
         Path path = Paths.get(file);
         try {
             List<String> strings = Files.readAllLines(path);
-            String medium = strings.get(0);
-            String action = strings.get(1);
-            if (medium.toLowerCase().equals("motor")) {
+
+            System.out.println(strings);
+            String medium = getObject(0, strings);
+            String action = getObject(1, strings);
+            if (action == null) {
+                action = medium;
+                medium = "computer";
+            }
+            if (medium != null && medium.toLowerCase().equals("motor")) {
                 new FIleService().motorAction(action);
             } else {
                 new FIleService().miscAction(action, medium);
